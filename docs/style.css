@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+:root {
+  --text: #1a1a1a;
+  --bg: #f5f0e8;
+  --accent: #2a2a2a;
+  --faint: #b0a898;
+  --rule: #d4cbbf;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #d4cbbf;
+    --bg: #1a1814;
+    --accent: #e8e0d4;
+    --faint: #5a5248;
+    --rule: #3a342c;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "EB Garamond", "Garamond", "Georgia", "Times New Roman", serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  max-width: 34em;
+  margin: 0 auto;
+  padding: 8vh 1.5rem 12vh;
+}
+
+.piece {
+  margin-bottom: 4em;
+}
+
+.piece:last-child {
+  margin-bottom: 0;
+}
+
+.piece p {
+  text-indent: 1.5em;
+  margin-bottom: 0;
+}
+
+.piece p:first-child {
+  text-indent: 0;
+}
+
+.piece p + p {
+  margin-top: 0.15em;
+}
+
+.piece .stanza {
+  text-indent: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 2em;
+}
+
+.piece .stanza .line {
+  display: block;
+  text-indent: 0;
+}
+
+.break {
+  text-align: center;
+  margin: 4em 0;
+  color: var(--faint);
+  letter-spacing: 0.5em;
+  font-size: 0.7rem;
+}
+
+.italic-block {
+  font-style: italic;
+  text-indent: 0;
+  margin: 0.75em 0;
+}
+
+em {
+  font-style: italic;
+}
+
+.fragment {
+  display: block;
+  text-indent: 0;
+  margin: 0.5em 0;
+}
+
+.dialogue {
+  text-indent: 0;
+}
+
+.parenthetical {
+  text-indent: 0;
+  margin: 0.75em 0;
+}
+
+/* Entry animation */
+main {
+  opacity: 0;
+  animation: arrive 1.5s ease-out 0.3s forwards;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Selection */
+::selection {
+  background: var(--faint);
+  color: var(--bg);
+}
